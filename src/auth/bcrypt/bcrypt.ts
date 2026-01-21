@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import { Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 
@@ -8,7 +9,10 @@ export class Bcrypt {
     return await bcrypt.hash(senha, saltos);
   }
 
-  async compararSenhas(senhaDigitada: string, senhaBanco: string): Promise<boolean> {
+  async compararSenhas(
+    senhaDigitada: string,
+    senhaBanco: string,
+  ): Promise<boolean> {
     return await bcrypt.compare(senhaDigitada, senhaBanco);
   }
 }
